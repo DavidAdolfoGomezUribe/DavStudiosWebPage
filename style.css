@@ -1,0 +1,105 @@
+.fotodeperfil{
+    background-color: lightcyan;
+    max-width: 270px;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border-style: double;
+    border-color:red;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.fotoa {
+   /* background-color: lightcyan;*/
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+    
+}
+
+.fotoa::before {
+    max-width: 270px;
+    max-height: 270px;
+    content: '';
+    position: absolute;
+    width: 100%; /* Ajusta el ancho según lo necesites */
+    height: 100%; /* Ajusta la altura según lo necesites */
+    background-image:repeating-linear-gradient(240deg, rgb(255, 0, 0) 0%, rgb(255, 0, 0) 50%, transparent 50%, transparent 100%);
+    
+    background-size: 30px 57px;  /* Asegura que la imagen cubra el div */
+    background-position: center; /* Centra la imagen de fondo */
+    transform: translate(100px, 100px); /* Desplazamiento hacia abajo y a la derecha */
+    z-index: -1; /* Envía la imagen de fondo detrás del contenido */
+}
+
+
+.container{
+    position: relative;
+    height: 100vh ;
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    0%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+.row{
+    display: inline-flex;
+    margin-top: -32px ;
+    margin-left: 50px;
+
+}
+
+.row:nth-child(even){
+    margin-left: 2px;
+}
+
+
+
+.hexagon{
+
+    position: relative;
+    width: 90px;
+    height: 120px;
+    background:  #111111;
+    margin: 2px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: 1s;
+}
+.hexagon:hover{
+    transition: 0s;
+    background: #0f0;    
+}
+
+
+.hexagon::after{
+    content: " ";
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left:8px ;
+    right: 8px;
+    background: #111111;   
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: 1s; 
+}
+
+.hexagon:before{
+    content: " ";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.02);
+}
